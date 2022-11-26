@@ -62,13 +62,13 @@ describe("다리 건너기 테스트", () => {
     expect(bridge).toEqual(["U", "D", "D"]);
   });
 
-  test("기능 테스트", () => {
+  test("기능 테스트", async () => {
     const logSpy = getLogSpy();
     mockRandoms(["1", "0", "1"]);
     mockQuestions(["3", "U", "D", "U"]);
 
     const app = new App();
-    app.play();
+    await app.play();
 
     const log = getOutput(logSpy);
     expectLogContains(log, [
